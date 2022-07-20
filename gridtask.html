@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #maindiv{
+        border: 2px solid red;
+        height: auto;
+        width: 360px;
+        display: grid;
+    grid-template-columns: repeat(8,8fr);
+      }
+      .items{
+        height: 40px;
+            width: 40px;
+            border: 2px solid black;
+           
+      }
+      #btn{
+        padding: 5px;
+        background-color: cornflowerblue;
+      }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+       
+    </div>
+    <div><button id="btn">ChangeColor</button></div>
+    <script>
+      var count = 1;
+      for(let i=0;i<8;i++)
+      {
+          for(let j=0;j<8;j++)
+          {
+            const DivContainer = document.getElementById('maindiv');
+            var cell = document.createElement('div');
+            cell.setAttribute('class','items');
+            cell.setAttribute('id',`${count}`);
+              DivContainer.appendChild(cell);
+              count +=1;
+          }
+      }
+
+      function myFunc(){
+
+    var row = parseInt(prompt("Enter row number"));
+    var col = parseInt(prompt("Enter column number"));
+    var idn = 0;
+    for(let i=0;i<row;i++)
+    {
+      for(let j=0;j<col;j++)
+      {
+        idn += 1;
+      }
+    }
+    document.getElementById(idn).style.backgroundColor="red"; 
+}
+//button event Listener
+var btn = document.getElementById('btn');
+btn.addEventListener('click',myFunc);
+  </script>
+    
+</body>
+</html>
